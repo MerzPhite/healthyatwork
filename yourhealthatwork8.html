@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Health at Work</title>
+    <style>
+        body {
+            
+    align-items: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: antiquewhite;
+    // background-color: rgb(255, 255, 255);
+}
+
+/*.subbuttons{display: none;}*/
+
+.fade-container {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+
+h1 {
+    margin-top: 40px;
+    font-size: 40px;
+}
+
+h3 {text-decoration: underline  ;}
+
+.buttons{ display:grid;
+        justify-content: center;}
+
+#startButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    margin-bottom: 0%;
+    cursor: pointer;
+}
+
+#endButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+}
+
+#changeColorButton { padding: 10px 10px;
+    margin-top: 0%;
+    font-size: 11px;
+    border-radius: 10px;
+    cursor: pointer;}
+
+#toggleTimersButton { padding: 10px 10px;
+    margin-top: 2px;
+    font-size: 11px;
+    border-radius: 10px;
+    cursor: pointer;}
+
+
+#refreshbutton{
+    display: none;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 10px 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 80%;
+    max-width: 200px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-decoration: aliceblue ;
+    background-color: limegreen; 
+    font-weight: bold;
+}
+#refreshbutton2{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 80%;
+    max-width: 200px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: limegreen; 
+    font-weight: bold;
+}
+
+#refreshbutton3{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 80%;
+    max-width: 200px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-decoration: aliceblue ;
+    background-color: limegreen;
+    font-weight: bold;
+}
+
+
+/*#timer {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+#timer2 {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+#timer3 {
+    font-size: 24px;
+    margin-top: 20px;
+} */
+
+.heading {
+    display: flex;
+    width: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.Title {
+    display: inline-block;
+    text-align: center;
+}
+
+.waterbottle {
+    margin-left: 0px;
+    margin-top: 1% ;
+    text-align: center;
+}
+
+#eyeImg {
+    display:none;
+    justify-content: center;
+}
+
+#dogImg {
+    display:none;
+    justify-content: center;
+}
+
+.dogdiv {display: inline-block; margin-top: 50px;}
+
+.fade-container2 {
+    transition: opacity 0.5s ease-in-out; /* Adjust the duration and easing as needed */
+    opacity: 0;
+}
+
+#walkImg {
+    display:none;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+#waterImg {
+    display:none;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+}
+
+#countdown {
+    font-size: 30px;
+    text-align: center;
+}
+
+#countdown2 {
+    font-size: 30px;
+    text-align: center;
+}
+
+#countdown3 {
+    font-size: 30px;
+    text-align: center;
+}
+
+#innerhtml {
+    font-size: 60px;
+    text-align: center;
+}
+
+#innerhtml2 {
+    font-size: 60px;
+    text-align: center;
+}
+
+#innerhtml3 {
+    font-size: 60px;
+    text-align: center;
+}
+
+.lbarhead {
+    border-style: solid;
+    border-width: thin;
+    max-width: 80%; /* Initial width of the loading bar */
+    margin: 10px auto; /* Center the loading bar horizontally */
+}
+
+.lbarhead2 {
+    border-style: solid;
+    border-width: thin;
+    max-width: 80%; /* Initial width of the loading bar */
+    margin: 10px auto; /* Center the loading bar horizontally */
+}
+
+.lbarhead3 {
+    border-style: solid;
+    border-width: thin;
+    max-width: 80%; /* Initial width of the loading bar */
+    margin: 10px auto; /* Center the loading bar horizontally */
+}
+
+#loadingBar {
+    justify-content: center;
+    display: inline-block;
+    height: 20px;
+    max-width: 1000px; /* Initial width of the loading bar */
+    background-color: limegreen; /* Loading bar color */
+
+    /* Specify the GIF as the background */
+    /*background: url('reflec.gif') no-repeat center center fixed; */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#loadingBar2 {
+    justify-content: center;
+    display: inline-block;
+    height: 20px;
+    max-width: 1000px; /* Initial width of the loading bar */
+    background-color: limegreen; /* Loading bar color */
+
+    /* Specify the GIF as the background */
+    /*background: url('reflec.gif') no-repeat center center fixed;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#loadingBar3 {
+    justify-content: center;
+    display: inline-block;
+    height: 20px;
+    max-width: 1000px; /* Initial width of the loading bar */
+    background-color: limegreen; /* Loading bar color */
+
+    /* Specify the GIF as the background */
+   /* background: url('reflec.gif') no-repeat center center fixed;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.allcontainers{ display: flex;
+                margin-left: 10px;
+                margin-right: 10px;}
+
+.allcontainers2{ display: flex;
+                 margin-left: 10px;
+                 margin-right: 10px;}
+
+.container1 {
+    flex: 1;
+    display: none;
+    margin-top: 5px;
+}
+
+.container2 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    border-style: hidden;
+    margin-top: 0px;
+}
+
+.container3 {
+    flex: 1;
+    display: none;
+    margin-top: 5px;
+}
+
+.container4 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;}
+    
+
+.container5 {
+    flex: 1;
+    display: none;
+    margin-top: 5px;
+}
+
+.container6 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+    
+}
+
+.box {
+
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    border-style: hidden
+    ;
+}
+
+.box2 {
+    display: inline-block;
+    margin-top: px;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+   
+    ;
+}
+
+.box3 {
+    display: inline-block;
+    margin-top: 0px;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#randomFactsSection {
+    display: none;
+    text-align: center;
+    margin-top: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#randomFact {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+button {
+    padding: 10px 20px;
+    font-size: 11px;
+    border-radius: 10px;
+    cursor: pointer; /* factbutton */
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <div class="Title">
+            <h1>HEALTHY WORK</h1>
+            <h3>You only have 1 body, look after it!</h3>
+        </div>
+       <!-- <div class="waterbottle"> 
+            <img src="waterbottle.png"> -->
+        </div>
+    </div>
+    <br>
+    <div class="buttons">
+    <button id="startButton" onclick="startAll()">Start my working time</button>
+    <button id="endButton" onclick="endAll()">End my working time</button>
+    </div>
+    <div class="subbuttons">
+    <button id="changeColorButton" onclick="changeLoadingBarColor()">Random Loading Bar Color</button>
+    <button id="toggleTimersButton" onclick="toggleTimers()">Toggle Timers</button>
+    <button onclick="showFact()">Generate Random Fact</button>
+    </div>
+
+    <!-- <div id="timer"></div> -->
+    <div class="dogdiv">
+        <img id="dogImg" src="dog.webp">
+        </div> 
+        <div class="allcontainers">
+            <div class="container1">
+                <div class="box">
+                    <img id="eyeImg" src="eyes.png">
+                    <div id="countdown"></div>
+                    <div class="lbarhead">
+                        <div id="loadingBar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container3">
+                <div class="box2">
+                    <img id="walkImg" src="walking.gif">
+                    <div id="timer2"></div>
+                    <div id="countdown2"></div>
+                    <div class="lbarhead2">
+                        <div id="loadingBar2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container5">
+                <div class="box3">
+                    <img id="waterImg" src="waterani.gif">
+                    <div id="timer3"></div>
+                    <div id="countdown3"></div>
+                    <div class="lbarhead3">
+                        <div id="loadingBar3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="allcontainers2">
+            <div class="container2">
+                <button id="refreshbutton" onclick="startWorkDay()">I've given my eyes a break </button>
+            </div>
+            <div class="container4">
+                <button id="refreshbutton2" onclick="startWorkDay2()">I've gone for a short walk</button>
+            </div>
+            <div class="container6">
+                <button id="refreshbutton3" onclick="startWorkDay3()">I've had a drink</button>
+            </div>
+
+        </div>
+
+        <div class="allcontainers3">
+            <div class="container7">
+            </div>
+            <div class="container8">
+                <div id="randomFactsSection">
+                    <p id="randomFact"></p>
+                </div>
+            </div>
+            <div class="container9">
+            </div>
+
+        </div>
+
+
+        
+              
+
+
+    <script>
+
+            function changeLoadingBarColor() {
+                var loadingBar = document.getElementById('loadingBar');
+                var loadingBar2 = document.getElementById('loadingBar2');
+                var loadingBar3 = document.getElementById('loadingBar3');
+                var refreshbutton = document.getElementById('refreshbutton');
+                var refreshbutton2 = document.getElementById('refreshbutton2');
+                var refreshbutton3 = document.getElementById('refreshbutton3');
+
+                // Get a random color (you can modify this logic based on your requirements)
+                var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+                var randomColor2 = '#' + Math.floor(Math.random()*16777215).toString(16);
+                var randomColor3 = '#' + Math.floor(Math.random()*16777215).toString(16);
+
+                // Apply the new color to the loading bar
+                loadingBar.style.backgroundColor = randomColor;
+                loadingBar2.style.backgroundColor = randomColor2;
+                loadingBar3.style.backgroundColor = randomColor3;
+                refreshbutton.style.backgroundColor = randomColor;
+                refreshbutton2.style.backgroundColor = randomColor2;
+                refreshbutton3.style.backgroundColor = randomColor3;
+            }
+
+            var timersVisible = true; // Variable to track the state of timers visibility
+
+            var timersVisible = true; // Variable to track the state of timers visibility
+
+    function toggleTimers() {
+        var countdownDisplay = document.getElementById('countdown');
+        var countdownDisplay2 = document.getElementById('countdown2');
+        var countdownDisplay3 = document.getElementById('countdown3');
+
+        // Check if any of the countdown timers are visible
+        var timersVisibleNow = countdownDisplay.style.display === 'block' || 
+                               countdownDisplay2.style.display === 'block' ||
+                               countdownDisplay3.style.display === 'block';
+
+        // Toggle visibility based on the current state
+        if (timersVisible && timersVisibleNow) {
+            // Hide the countdown displays
+            countdownDisplay.style.display = 'none';
+            countdownDisplay2.style.display = 'none';
+            countdownDisplay3.style.display = 'none';
+        } else {
+            // Show the countdown displays
+            countdownDisplay.style.display = 'block';
+            countdownDisplay2.style.display = 'block';
+            countdownDisplay3.style.display = 'block';
+        }
+
+        // Toggle the state
+        timersVisible = !timersVisible;
+    }
+
+        function startAll() {
+                    startWorkDay();
+                    startWorkDay2();
+                    startWorkDay3();
+                    removeStartButton();
+                    document.getElementById('dogImg').style.display = 'none';
+
+                    // Add the fade effect to the containers
+                    document.getElementsByClassName('container1')[0].classList.add('fade-container');
+                    document.getElementsByClassName('container3')[0].classList.add('fade-container');
+                    document.getElementsByClassName('container5')[0].classList.add('fade-container');
+
+                    document.getElementsByClassName('container1')[0].style.display = 'inline-block';
+                    document.getElementsByClassName('container3')[0].style.display = 'inline-block';
+                    document.getElementsByClassName('container5')[0].style.display = 'inline-block';
+
+                    setTimeout(() => {
+                    document.getElementsByClassName('container1')[0].style.opacity = '1';
+                    document.getElementsByClassName('container3')[0].style.opacity = '1';
+                    document.getElementsByClassName('container5')[0].style.opacity = '1';
+                }, 500);
+                                    }
+
+    function endAll() {
+    // Trigger the fade-out effect by accessing the opacity property
+    document.getElementsByClassName('container1')[0].style.opacity = '0';
+    document.getElementsByClassName('container2')[0].style.opacity = '0';
+    document.getElementsByClassName('container3')[0].style.opacity = '0';
+    document.getElementsByClassName('container4')[0].style.opacity = '0';
+    document.getElementsByClassName('container5')[0].style.opacity = '0';
+    document.getElementsByClassName('container6')[0].style.opacity = '0';
+    document.getElementById('randomFactsSection').style.opacity = '0';
+
+    // After the transition duration, hide the containers
+    setTimeout(() => {
+        document.getElementsByClassName('container1')[0].style.display = 'none';
+        document.getElementsByClassName('container2')[0].style.display = 'none';
+        document.getElementsByClassName('container3')[0].style.display = 'none';
+        document.getElementsByClassName('container4')[0].style.display = 'none';
+        document.getElementsByClassName('container5')[0].style.display = 'none';
+        document.getElementsByClassName('container6')[0].style.display = 'none';
+        document.getElementById('randomFactsSection').style.display = 'none';
+        
+        // Remove the fade effect after hiding the containers
+        document.getElementsByClassName('container1')[0].classList.remove('fade-container');
+        document.getElementsByClassName('container2')[0].classList.remove('fade-container');
+        document.getElementsByClassName('container3')[0].classList.remove('fade-container');
+        document.getElementsByClassName('container4')[0].classList.remove('fade-container');
+        document.getElementsByClassName('container5')[0].classList.remove('fade-container');
+        document.getElementsByClassName('container6')[0].classList.remove('fade-container');
+        document.getElementById('randomFactsSection').classList.remove('fade-container');
+
+    }, 1000); // Assuming the transition duration is 1s
+
+        eoddog();
+        removeEndButton();
+        }
+
+        function eoddog() {
+        setTimeout(() => {
+        document.getElementById('dogImg').classList.add('fade-container');
+        document.getElementById('dogImg').style.display = 'inherit';
+
+        setTimeout(() => {
+            document.getElementById('dogImg').style.opacity = '1';
+        }, 500); // Additional delay for the opacity change
+        }, 1000); // Delay the entire function by 1 second
+        }
+
+        function removeEndButton() {
+        document.getElementById('endButton').style.display = 'none';
+        document.getElementById('startButton').style.display = 'none';                      
+        }
+
+        function removeStartButton() {
+        document.getElementById('startButton').style.display = 'none';
+        document.getElementById('endButton').style.display = 'inherit';}
+
+        function startWorkDay() {
+            // Display the eye image
+            document.getElementById('eyeImg').style.justifyContent = 'center';
+            document.getElementById('eyeImg').style.display = 'inherit';
+            document.getElementById('refreshbutton').style.display = 'none';
+
+    
+            // Start the countdown timer
+    var countdown = 20 * 60; // 20 minutes in seconds
+    var countdownDisplay = document.getElementById('countdown');
+    var loadingBar = document.getElementById('loadingBar');
+    countdownDisplay.style.display = 'block';
+    loadingBar.style.display = 'block';
+    loadingBar.style.width = '100%'; // Reset the loading bar width to 100%
+
+    function updateCountdown() {
+        var minutes = Math.floor(countdown / 60);
+        var seconds = countdown % 60;
+        countdownDisplay.innerHTML = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+
+        // Update the loading bar width based on countdown progress
+        var progress = (countdown / (20 * 60)) * 100; // Using the correct total time
+        loadingBar.style.width = progress + '%';
+
+        if (countdown > 0) {
+            countdown--;
+        } else {
+            countdownDisplay.innerHTML = 'Give your eyes a break ';
+            loadingBar.style.display = 'none'; // Set loading bar width to 0
+            loadingBar.style.width = '0%'; // Set loading bar width to 0
+            showPrompt(); // Call the function to show the prompt
+            document.getElementById('refreshbutton').style.display = 'inherit';
+            clearInterval(interval); // Stop the interval when countdown reaches 0
+        }
+    }
+
+    updateCountdown();
+
+    // Use setInterval to update the countdown every second
+    interval = setInterval(updateCountdown, 1000);
+}
+    
+        function showPrompt() {
+            // Display a prompt when the timer reaches 0
+            window.alert(' Look at something 20 feet away for at least 20 seconds.');
+        }
+
+        //var interval2; // Declare interval outside the function
+
+        function startWorkDay2() {
+    // Display the walking image
+    document.getElementById('walkImg').style.justifyContent = 'center';
+    document.getElementById('walkImg').style.display = 'inherit';
+    document.getElementById('refreshbutton2').style.display = 'none';
+
+    // Start the countdown timer
+    var countdown2 = 60 * 60; // 20 minutes in seconds
+    var countdownDisplay2 = document.getElementById('countdown2');
+    var loadingBar2 = document.getElementById('loadingBar2');
+    countdownDisplay2.style.display = 'block';
+    loadingBar2.style.display = 'block';
+    loadingBar2.style.width = '100%'; // Reset the loading bar width to 100%
+
+    function updateCountdown2() {
+        var minutes2 = Math.floor(countdown2 / 60);
+        var seconds2 = countdown2 % 60;
+        countdownDisplay2.innerHTML = minutes2 + ':' + (seconds2 < 10 ? '0' : '') + seconds2;
+
+        // Update the loading bar width based on countdown progress
+        var progress2 = (countdown2 / (60 * 60)) * 100; // Using the correct total time
+        loadingBar2.style.width = progress2 + '%';
+
+        if (countdown2 > 0) {
+            countdown2--;
+        } else {
+            countdownDisplay2.innerHTML = 'Go for a walk';
+            loadingBar2.style.display = 'none'; // Set loading bar width to 0
+            loadingBar2.style.width = '0%'; // Set loading bar width to 0
+            showPrompt2(); // Call the function to show the prompt
+            document.getElementById('refreshbutton2').style.display = 'inherit';
+            clearInterval(interval2); // Stop the interval when countdown reaches 0
+        }
+    }
+
+    updateCountdown2();
+
+    // Use setInterval to update the countdown every second
+    interval2 = setInterval(updateCountdown2, 1000);
+}
+
+function showPrompt2() {
+    // Display a prompt when the timer reaches 0
+    window.alert('Take a short walk and stretch your legs.');
+}
+
+function startWorkDay3() {
+    // Display the walking image
+    document.getElementById('waterImg').style.justifyContent = 'center';
+    document.getElementById('waterImg').style.display = 'inherit';
+    document.getElementById('refreshbutton3').style.display = 'none';
+
+    // Start the countdown timer
+    var countdown3 = 30 * 60; // 20 minutes in seconds
+    var countdownDisplay3 = document.getElementById('countdown3');
+    var loadingBar3 = document.getElementById('loadingBar3');
+    countdownDisplay3.style.display = 'block';
+    loadingBar3.style.display = 'block';
+    loadingBar3.style.width = '100%'; // Reset the loading bar width to 100%
+
+    function updateCountdown3() {
+        var minutes3 = Math.floor(countdown3 / 60);
+        var seconds3 = countdown3 % 60;
+        countdownDisplay3.innerHTML = minutes3 + ':' + (seconds3 < 10 ? '0' : '') + seconds3;
+
+        // Update the loading bar width based on countdown progress
+        var progress3 = (countdown3 / (30 * 60)) * 100; // Using the correct total time
+        loadingBar3.style.width = progress3 + '%';
+
+        if (countdown3 > 0) {
+            countdown3--;
+        } else {
+            countdownDisplay3.innerHTML = 'Your water reminder';
+            loadingBar3.style.display = 'none'; // Set loading bar width to 0
+            loadingBar3.style.width = '0%'; // Set loading bar width to 0
+            //showPrompt3(); // Call the function to show the prompt
+            document.getElementById('refreshbutton3').style.display = 'inherit';
+            clearInterval(interval3); // Stop the interval when countdown reaches 0
+        }
+    }
+
+    updateCountdown3();
+
+    // Use setInterval to update the countdown every second
+    interval3 = setInterval(updateCountdown3, 1000);
+}
+
+function showPrompt3() {
+    // Display a prompt when the timer reaches 0
+    window.alert('Keep yourself hydrated');
+}
+
+// Array of random facts
+const randomFacts = [
+    "Did you know that honey never spoils?",
+    "The Eiffel Tower can be 15 cm taller during the summer.",
+    "Cats have five toes on their front paws but only four on their back paws.",
+    "The longest recorded flight of a chicken is 13 seconds.",
+    "Honey never spoils; archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still perfectly edible.",
+    "A single cloud can weigh more than 1 million pounds.",
+    "The shortest war in history was between Britain and Zanzibar on August 27, 1896, lasting only 38 minutes.",
+    "A group of flamingos is called a 'flamboyance.'",
+    "Bananas are berries, but strawberries aren't.",
+    "Wombat poop is cube-shaped.",
+    "The Great Wall of China is not visible from the moon with the naked eye.",
+    "The inventor of the frisbee was turned into a frisbee. Walter Morrison was cremated, and his ashes were molded into a frisbee after he passed away.",
+    "The longest word in the English language without a vowel is 'rhythms.'",
+    "A newborn kangaroo is about 1 inch long.",
+    "A group of owls is called a 'parliament.'",
+    "The dot over the letter 'i' is called a tittle.",
+    "Cows have best friends and can become stressed when they are separated.",
+    "Polar bear skin is black, and its fur is not white; it's transparent.",
+    "In Switzerland, it is illegal to own just one guinea pig; you must have at least two because they are social animals.",
+    "The world's largest desert is not the Sahara but Antarctica.",
+    "If you lift a kangaroo's tail off the ground, it can't hop.",
+    "A snail can sleep for three years.",
+    "A jiffy is an actual unit of time: 1/100th of a second.",
+    "A group of jellyfish is called a 'smack.'",
+    "The average person spends six months of their life waiting for red lights to turn green.",
+    "Hippopotomonstrosesquippedaliophobia is the fear of long words.",
+    "A group of frogs is called an 'army.'",
+    "Octopuses have three hearts.",
+    "The oldest known vegetable is the pea.",
+    "A crocodile cannot stick its tongue out.",
+    "The longest word in the English language with only one vowel is 'strengths.'"
+    
+];
+
+function showFact() {
+                    document.getElementById('randomFactsSection').style.display = 'inherit';
+                    generateRandomFact();}
+
+// Function to generate a random fact with fade in/out effect
+function generateRandomFact() {
+    const randomIndex = Math.floor(Math.random() * randomFacts.length);
+    const fact = randomFacts[randomIndex];
+    
+    const randomFactElement = document.getElementById('randomFact');
+    
+    // Fade out
+    randomFactElement.style.opacity = 0;
+
+    // Wait for the fade out to complete and then set the fact content
+    setTimeout(() => {
+        // Set the fact content
+        randomFactElement.textContent = fact;
+
+        // Fade in
+        randomFactElement.style.opacity = 1;
+    }, 1000);
+}
+
+// Initial fact generation
+generateRandomFact();
+
+
+
+    </script>
+</body>
+</html>
